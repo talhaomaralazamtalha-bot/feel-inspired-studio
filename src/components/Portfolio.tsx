@@ -41,7 +41,7 @@ export function Portfolio() {
     </header>
     <AnimatePresence>{menuOpen && <motion.nav className="mobile-nav" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>{nav.map(item => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{item}</a>)}</motion.nav>}</AnimatePresence>
 
-    <Scene id="home" image={heroImage} alt="A builder overlooking a luminous mountain of connected ideas">
+    <Scene id="home" image={portraitAsset.url} alt="Didarul Azam Mahi — portrait">
       <motion.p className="eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }}>Didarul Azam Mahi · Bangladesh</motion.p>
       <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>BUILDING<br />THE NEXT<br /><em>IDEA.</em></motion.h1>
       <motion.p className="hero-copy" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .65 }}>Software developer, AI builder, founder-minded technologist, and community leader exploring how ambitious ideas become useful products.</motion.p>
