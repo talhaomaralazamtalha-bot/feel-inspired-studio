@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import heroImage from "../assets/mahi-hero.jpg";
+import portraitAsset from "../assets/mahi-portrait.jpg.asset.json";
 import aiImage from "../assets/mahi-ai.jpg";
 import communityImage from "../assets/mahi-community.jpg";
 import { aiClusters, experience, journey, projects, technologies } from "../data/portfolio";
