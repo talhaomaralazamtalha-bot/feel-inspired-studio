@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import heroImage from "../assets/mahi-hero.jpg";
+import portraitAsset from "../assets/mahi-portrait.jpg.asset.json";
 import aiImage from "../assets/mahi-ai.jpg";
 import communityImage from "../assets/mahi-community.jpg";
 import { aiClusters, experience, journey, projects, technologies } from "../data/portfolio";
@@ -40,12 +41,18 @@ export function Portfolio() {
     </header>
     <AnimatePresence>{menuOpen && <motion.nav className="mobile-nav" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>{nav.map(item => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{item}</a>)}</motion.nav>}</AnimatePresence>
 
-    <Scene id="home" image={heroImage} alt="A builder overlooking a luminous mountain of connected ideas">
-      <motion.p className="eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }}>Didarul Azam Mahi · Bangladesh</motion.p>
-      <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>BUILDING<br />THE NEXT<br /><em>IDEA.</em></motion.h1>
-      <motion.p className="hero-copy" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .65 }}>Software developer, AI builder, founder-minded technologist, and community leader exploring how ambitious ideas become useful products.</motion.p>
-      <motion.div className="hero-actions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }}><a className="primary-link" href="#projects">View my work <ArrowDown size={15} /></a><a className="text-link" href="#contact">Let’s connect <ArrowUpRight size={15} /></a></motion.div>
-    </Scene>
+    <section id="home" className="hero-split">
+      <div className="hero-text">
+        <motion.p className="eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }}>Didarul Azam Mahi · Bangladesh</motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>BUILDING<br />THE NEXT<br /><em>IDEA.</em></motion.h1>
+        <motion.p className="hero-copy" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .65 }}>Software developer, AI builder, founder-minded technologist, and community leader exploring how ambitious ideas become useful products.</motion.p>
+        <motion.div className="hero-actions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }}><a className="primary-link" href="#projects">View my work <ArrowDown size={15} /></a><a className="text-link" href="#contact">Let’s connect <ArrowUpRight size={15} /></a></motion.div>
+      </div>
+      <motion.div className="hero-portrait" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: .15 }}>
+        <img src={portraitAsset.url} alt="Didarul Azam Mahi — portrait" className="hero-portrait-img" width={1080} height={1440} loading="eager" />
+        <span className="hero-portrait-tag" />
+      </motion.div>
+    </section>
 
     <div className="marquee" aria-label="Technology toolkit"><div className="marquee-track">{[...technologies, ...technologies].map((t, i) => <span key={`${t}-${i}`}>{t}<i /></span>)}</div></div>
 
